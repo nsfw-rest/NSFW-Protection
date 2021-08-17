@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.22.0",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "nsfw-rest-js": "^0.0.1"
+  },
+  "name": "nsfw-protection",
+  "description": "NSFW Protection is a Discord bot powered by nsfw.rest",
+  "version": "1.0.0",
+  "main": "src/bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsfw-rest/NSFW-Protection.git"
+  },
+  "keywords": [
+    "nsfw",
+    "scanning",
+    "ai"
+  ],
+  "author": "abcdan",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/nsfw-rest/NSFW-Protection/issues"
+  },
+  "homepage": "https://github.com/nsfw-rest/NSFW-Protection#readme"
+}
