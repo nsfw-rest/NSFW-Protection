@@ -27,16 +27,19 @@ client.on('message', async message => {
 
   // TODO: Check if the person want to setup
 
-  // TODO: IF MESSAGE CONTAINS A FILE
+  // TODO: IF MESSAGE CONTAINS A FILE, this doesn't work
   if (message.attachments.size > 0) {
     if (message.attachments.every(attachIsImage)){
 
       message.attachments()
+      // Download the file from the url
       https.get(url, async (res) => {
         // Image will be stored at this path
         const path = `${__dirname}/files/${url.split('/').slice(-1)[0]}`; 
+        // The place to write the file to
         const filePath = fs.createWriteStream(path);
         res.pipe(filePath);
+        // If the file is done downloading
         filePath.on('finish', async () => {
             filePath.close();
             console.log('Download Completed, starting scanning.'); 
@@ -45,6 +48,7 @@ client.on('message', async message => {
             const results = await nsfwrest.scanFileLocation(path)
             console.log(results)
             if(results) {
+              // Delete the file after it has been scanned
                 fs.unlinkSync(path)
                 if (results.guess.nsfw === true) {
                   // TODO: Delete the message and put it in a log channel
